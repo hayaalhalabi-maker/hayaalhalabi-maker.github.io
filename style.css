@@ -19,12 +19,8 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
-  font-family: Georgia, "Cambria Math", Cambria, "Times New Roman", serif;
+  font-family: Georgia, Cambria, "Cambria Math", "Times New Roman", serif;
   background: linear-gradient(to bottom, var(--cream), var(--warm-cream));
   color: var(--text);
   line-height: 1.7;
@@ -35,11 +31,7 @@ a {
 }
 
 header {
-  background: rgba(15, 23, 42, 0.96);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
+  background: var(--deep-navy);
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
 }
 
@@ -57,7 +49,6 @@ header {
   color: var(--cream);
   font-size: 1.5rem;
   font-weight: bold;
-  letter-spacing: 0.5px;
 }
 
 .nav-links {
@@ -69,25 +60,22 @@ header {
 .nav-links a {
   color: var(--cream);
   font-size: 1rem;
-  transition: color 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #d6c7ff;
+  color: var(--soft-purple);
 }
 
 .hero {
-  min-height: 88vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 20px;
-  background:
-    linear-gradient(rgba(15, 23, 42, 0.45), rgba(109, 76, 207, 0.35)),
-    linear-gradient(135deg, var(--deep-navy), var(--purple));
-  color: white;
   text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, var(--deep-navy), var(--purple));
+  color: white;
 }
 
 .hero-text {
@@ -95,7 +83,7 @@ header {
 }
 
 .hero-text h1 {
-  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  font-size: 4rem;
   line-height: 1.1;
   margin-bottom: 18px;
 }
@@ -119,7 +107,6 @@ header {
   padding: 13px 24px;
   border-radius: 999px;
   font-size: 0.98rem;
-  transition: all 0.25s ease;
   border: 1px solid transparent;
 }
 
@@ -128,20 +115,10 @@ header {
   color: var(--navy);
 }
 
-.btn-primary:hover {
-  transform: translateY(-2px);
-  background: #fffdf9;
-}
-
 .btn-secondary {
   background: transparent;
   color: white;
   border-color: rgba(255, 255, 255, 0.6);
-}
-
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.08);
-  transform: translateY(-2px);
 }
 
 .section {
@@ -165,16 +142,13 @@ header {
   font-size: 1.02rem;
 }
 
-.cards,
-.projects-grid {
+.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-.card,
-.project-card,
-.about-box {
+.card {
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -182,102 +156,14 @@ header {
   box-shadow: var(--shadow);
 }
 
-.card h3,
-.project-card h3,
-.about-box h2 {
+.card h3 {
   color: var(--navy);
   margin-bottom: 12px;
   font-size: 1.35rem;
 }
 
-.card p,
-.project-card p,
-.about-box p,
-.about-box li {
+.card p {
   color: var(--muted);
-}
-
-.card {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card:hover,
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(22, 33, 62, 0.12);
-}
-
-.project-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.project-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 5px;
-  background: linear-gradient(to right, var(--purple), var(--navy));
-}
-
-.project-links {
-  margin-top: 18px;
-}
-
-.project-link {
-  color: var(--purple);
-  font-weight: bold;
-}
-
-.project-link:hover {
-  color: var(--navy);
-}
-
-.highlight-band {
-  background: linear-gradient(135deg, rgba(109, 76, 207, 0.08), rgba(22, 33, 62, 0.06));
-  border: 1px solid rgba(109, 76, 207, 0.12);
-  border-radius: 24px;
-  padding: 36px 28px;
-  text-align: center;
-}
-
-.highlight-band p {
-  max-width: 760px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: 1.05rem;
-}
-
-.page-header {
-  padding: 90px 20px 40px;
-  text-align: center;
-}
-
-.page-header h1 {
-  font-size: 3rem;
-  color: var(--deep-navy);
-  margin-bottom: 10px;
-}
-
-.page-header p {
-  color: var(--muted);
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.about-layout {
-  display: grid;
-  gap: 24px;
-}
-
-.skills-list {
-  margin-left: 20px;
-  margin-top: 12px;
-}
-
-.skills-list li {
-  margin-bottom: 10px;
 }
 
 footer {
@@ -287,36 +173,4 @@ footer {
   text-align: center;
   padding: 28px 20px;
   font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .nav-links {
-    gap: 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero {
-    min-height: 78vh;
-    padding: 70px 18px;
-  }
-
-  .section-title {
-    font-size: 2rem;
-  }
-
-  .page-header h1 {
-    font-size: 2.35rem;
-  }
-
-  .card,
-  .project-card,
-  .about-box {
-    padding: 22px;
-  }
 }
